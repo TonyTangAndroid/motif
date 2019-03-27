@@ -21,6 +21,7 @@ def versions = [
         glide: '4.9.0',
         room: '2.1.0',
         dokka: '1.4.32',
+        ribs: "0.12.1",
         "gradleIntellijPlugin": [
                 ide: '2020.2'
         ],
@@ -32,7 +33,7 @@ ext.deps = [
                 buildToolsVersion: '30.0.3',
                 compileSdkVersion: 30,
                 ci: 'true' == System.getenv('CI'),
-                minSdkVersion: 14,
+                minSdkVersion: 16,
                 targetSdkVersion: 22,//avoid runtime permission error.
 
                 gradlePlugins: [
@@ -61,10 +62,16 @@ ext.deps = [
         "test": [
                 junit: 'junit:junit:4.12',
                 truth: 'com.google.truth:truth:1.0',
+                ribs: "com.uber.rib:rib-test-utils:${versions.ribs}",
                 compileTesting: 'com.google.testing.compile:compile-testing:0.18',
                 compileTestingKotlin: 'com.github.tschuchortdev:kotlin-compile-testing:1.4.2',
                 assertj: 'org.assertj:assertj-core:3.13.2'
         ],
+
+        ribs: "com.uber.rib:rib-android:${versions.ribs}",
+        ribsWorkflow: "com.uber.rib:rib-workflow:${versions.ribs}",
+        ribsCompiler: "com.uber.rib:rib-compiler-test:${versions.ribs}",
+
         dagger: "com.google.dagger:dagger:${versions.dagger}",
         daggerCompiler: "com.google.dagger:dagger-compiler:${versions.dagger}",
         javapoet: 'com.squareup:javapoet:1.11.1',
