@@ -1,7 +1,3 @@
-// https://github.com/gradle/gradle/issues/4848
-gradle.startParameter.configureOnDemand = false
-
-
 buildscript {
     apply from: 'gradle/dependencies.gradle'
     repositories {

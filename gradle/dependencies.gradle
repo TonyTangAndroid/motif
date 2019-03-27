@@ -15,26 +15,26 @@
  */
 
 def versions = [
-        kotlin: '1.2.71',
-        support: '27.1.1',
-        dagger: '2.16',
+        kotlin: '1.3.20',
+        support: '28.0.0',
+        dagger: '2.21',
         butterknife: '8.8.1',
-        glide: '4.7.1',
+        glide: '4.8.0',
         room: '1.1.1',
-        dokka: '0.9.17',
+        dokka: '0.9.18',
 ]
 
 ext.deps = [
         "versions": versions,
         "build": [
-                buildToolsVersion: '28.0.0',
+                buildToolsVersion: '28.0.3',
                 compileSdkVersion: 28,
                 ci: 'true' == System.getenv('CI'),
                 minSdkVersion: 14,
                 targetSdkVersion: 28,
 
                 gradlePlugins: [
-                        android: 'com.android.tools.build:gradle:3.1.3',
+                        android: 'com.android.tools.build:gradle:3.3.2',
                         kotlin: "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}",
                         dokka: "org.jetbrains.dokka:dokka-gradle-plugin:${versions.dokka}",
                         dokkaAndroid: "org.jetbrains.dokka:dokka-android-gradle-plugin:${versions.dokka}"
@@ -46,10 +46,10 @@ ext.deps = [
 
         ],
         "rx": [
-                android: 'io.reactivex.rxjava2:rxandroid:2.0.1',
-                java: 'io.reactivex.rxjava2:rxjava:2.1.7',
-                relay: 'com.jakewharton.rxrelay2:rxrelay:2.0.0',
-                binding: 'com.jakewharton.rxbinding2:rxbinding:2.1.1'
+                android: 'io.reactivex.rxjava2:rxandroid:2.1.0',
+                java: 'io.reactivex.rxjava2:rxjava:2.2.7',
+                relay: 'com.jakewharton.rxrelay2:rxrelay:2.1.0',
+                binding: 'com.jakewharton.rxbinding2:rxbinding:2.2.0'
         ],
         "support": [
                 annotations: "com.android.support:support-annotations:${versions.support}",
@@ -59,7 +59,7 @@ ext.deps = [
         ],
         "test": [
                 junit: 'junit:junit:4.12',
-                truth: 'com.google.truth:truth:0.42',
+                truth: 'com.google.truth:truth:0.43',
                 compileTesting: 'com.google.testing.compile:compile-testing:0.15'
         ],
         dagger: "com.google.dagger:dagger:${versions.dagger}",
@@ -77,5 +77,5 @@ ext.deps = [
         roomCompiler: "android.arch.persistence.room:compiler:${versions.room}",
         room: "android.arch.persistence.room:runtime:${versions.room}",
         autodispose: 'com.uber.autodispose:autodispose:0.8.0',
-        apacheClient: 'org.apache.httpcomponents:httpclient:4.5.2'
+        apacheClient: 'org.apache.httpcomponents:httpclient:4.5.6'
 ]
