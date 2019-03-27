@@ -33,7 +33,7 @@ ext.deps = [
                 compileSdkVersion: 30,
                 ci: 'true' == System.getenv('CI'),
                 minSdkVersion: 14,
-                targetSdkVersion: 30,
+                targetSdkVersion: 22,//avoid runtime permission error.
 
                 gradlePlugins: [
                         android: 'com.android.tools.build:gradle:4.2.2',
