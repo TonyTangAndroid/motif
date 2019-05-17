@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Uber Technologies, Inc.
+ * Copyright (c) 2018-2019 Uber Technologies, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,12 +16,12 @@
 package motif.compiler.codegen
 
 import com.squareup.javapoet.*
-import motif.compiler.ir.*
 import motif.models.graph.Scope
-import motif.models.java.IrAnnotation
-import motif.models.java.IrClass
-import motif.models.java.IrMethod
-import motif.models.java.IrType
+import motif.ast.IrAnnotation
+import motif.ast.IrClass
+import motif.ast.IrMethod
+import motif.ast.IrType
+import motif.ast.compiler.*
 import motif.models.parsing.ParserUtil
 import motif.models.motif.accessmethod.AccessMethod
 import motif.models.motif.dependencies.Dependency
@@ -31,6 +31,7 @@ import motif.models.motif.dependencies.RequiredDependency
 import motif.models.motif.objects.FactoryMethod
 import motif.models.motif.objects.ObjectsClass
 import motif.models.motif.objects.SpreadMethod
+import java.util.*
 import javax.annotation.processing.ProcessingEnvironment
 import javax.lang.model.element.Modifier
 import javax.lang.model.type.DeclaredType
@@ -123,9 +124,9 @@ interface JavaPoetUtil : ParserUtil {
         return this
     }
 
-    fun RequiredDependencies.methodSpecBuilders(): Map<Dependency, MethodSpec.Builder> {
+    fun RequiredDependencies.methodSpecBuilders(): SortedMap<Dependency, MethodSpec.Builder> {
         return nameScope {
-            list.associateBy({ it.dependency }) { it.dependency.methodSpecBuilder() }
+            list.associateBy({ it.dependency }) { it.dependency.methodSpecBuilder() }.toSortedMap()
         }
     }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Uber Technologies, Inc.
+ * Copyright (c) 2018-2019 Uber Technologies, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ package motif.compiler.codegen
 import com.squareup.javapoet.MethodSpec
 import com.squareup.javapoet.TypeName
 import com.squareup.javapoet.TypeSpec
-import motif.compiler.ir.CompilerMethodParameter
+import motif.ast.compiler.CompilerMethodParameter
 import motif.models.graph.Graph
 import motif.models.graph.Scope
 import motif.models.motif.dependencies.Dependency

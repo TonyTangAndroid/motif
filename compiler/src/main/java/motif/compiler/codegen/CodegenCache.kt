@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Uber Technologies, Inc.
+ * Copyright (c) 2018-2019 Uber Technologies, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -58,6 +58,10 @@ open class CodegenCache(
 
     val Scope.componentTypeName: ClassName by cache {
         implTypeName.nestedClass("Component")
+    }
+
+    val Scope.componentBuilderTypeName: ClassName by cache {
+        componentTypeName.nestedClass("Builder")
     }
 
     val Scope.dependenciesTypeName: ClassName by cache {

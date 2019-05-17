@@ -1,2 +1,8 @@
-Intermediate representation of Motif Scope definitions. This abstraction is necessary to share graph validation logic
-between the compiler and the Intellij plugin. For details, see README's in individual packages.
+AST model representation of [Motif concepts](https://github.com/uber/motif/wiki).
+
+**Usage**
+
+```kotlin
+val scopeClasses: List<IrClasses> = getScopeClasses()
+val scopes: List<Scope> = Scope.fromClasses(scopeClasses)
+```

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Uber Technologies, Inc.
+ * Copyright (c) 2018-2019 Uber Technologies, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ import de.vandermeer.asciitable.AT_Context
 import de.vandermeer.asciitable.AsciiTable
 import de.vandermeer.asciithemes.u8.U8_Grids
 import motif.compiler.errors.ErrorHandler
-import motif.compiler.ir.CompilerMethod
+import motif.ast.compiler.CompilerMethod
 import motif.models.errors.NotExposedDynamicError
 import javax.lang.model.element.Element
 

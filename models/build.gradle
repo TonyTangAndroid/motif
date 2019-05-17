@@ -9,9 +9,14 @@ sourceCompatibility = 1.8
 
 
 dependencies {
+    api project(':ast')
+
     implementation deps.kotlin.stdlib
     implementation project(':lib')
-    implementation deps.asciiTable
+
+    testImplementation project(':compiler-ast')
+    testImplementation deps.test.truth
+    testImplementation deps.test.compileTesting
 }
 
 apply from: rootProject.file('gradle/gradle-mvn-push.gradle')
