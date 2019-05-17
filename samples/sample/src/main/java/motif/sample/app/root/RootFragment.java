@@ -16,18 +16,23 @@
 package motif.sample.app.root;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import motif.sample.R;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-public class RootActivity extends AppCompatActivity {
+public class RootFragment extends Fragment {
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.root_activity);
-        getSupportFragmentManager().beginTransaction()
-            .replace(R.id.fl_root_view, RootFragment.newInstance())
-            .commit();
+    @Nullable @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+        @Nullable Bundle savedInstanceState) {
+        RootScope rootScope = new RootFactoryImpl().create(getActivity());
+        return rootScope.view();
+    }
+
+    public static RootFragment newInstance() {
+        return new RootFragment();
     }
 }
