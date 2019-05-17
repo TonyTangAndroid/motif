@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Uber Technologies, Inc.
+ * Copyright (c) 2018-2019 Uber Technologies, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 package motif.compiler.errors.parsing
 
 import motif.compiler.errors.ErrorHandler
-import motif.compiler.ir.CompilerMethod
+import motif.ast.compiler.CompilerMethod
 import motif.models.errors.NotAssignableBindsMethod
 import javax.lang.model.element.Element
 

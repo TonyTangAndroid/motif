@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Uber Technologies, Inc.
+ * Copyright (c) 2018-2019 Uber Technologies, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,7 +48,7 @@ public class MotifTestCompiler {
         DiagnosticCollector<JavaFileObject> diagnosticCollector = new DiagnosticCollector<>();
 
         ClassUsageFileManager classUsageFileManager = new ClassUsageFileManager(diagnosticCollector, classpathDir);
-        JavaFileManager fileManager = classUsageFileManager;
+        StandardJavaFileManager fileManager = classUsageFileManager;
         if (outDir == null) {
             fileManager = new InMemoryJavaFileManager(fileManager);
         }

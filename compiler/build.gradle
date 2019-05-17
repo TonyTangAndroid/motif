@@ -6,6 +6,8 @@ plugins {
 sourceCompatibility = 1.8
 
 dependencies {
+    api project(':compiler-ast')
+
     implementation deps.kotlin.stdlib
     implementation deps.autoCommon
     implementation deps.commonsCodec
@@ -14,15 +16,15 @@ dependencies {
     implementation deps.daggerCompiler
     implementation deps.asciiTable
     implementation project(':lib')
-    implementation project(':models')
+    implementation project(':core')
 
     testImplementation deps.test.truth
     testImplementation deps.test.compileTesting
-    testImplementation project(':stub-compiler')
+    testImplementation project(':tests:compiler')
 }
 
 test {
-    inputs.files(file("$rootDir/it/src"))
+    inputs.files(file("$rootDir/tests/src"))
 }
 
 apply from: rootProject.file('gradle/gradle-mvn-push.gradle')

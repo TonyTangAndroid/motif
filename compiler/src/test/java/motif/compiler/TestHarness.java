@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Uber Technologies, Inc.
+ * Copyright (c) 2018-2019 Uber Technologies, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,7 +44,7 @@ public class TestHarness {
 
     @Parameterized.Parameters(name = "{3}")
     public static Collection<Object[]> data() {
-        File sourceRoot = new File("../it/src/main/java/");
+        File sourceRoot = new File("../tests/src/main/java/");
         File testCaseRoot = new File(sourceRoot, "testcases");
         File externalRoot = new File(sourceRoot, "external");
         File commonDir = new File(sourceRoot, "common");

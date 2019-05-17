@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Uber Technologies, Inc.
+ * Copyright (c) 2018-2019 Uber Technologies, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,9 +19,10 @@ import com.squareup.javapoet.AnnotationSpec
 import com.squareup.javapoet.MethodSpec
 import com.squareup.javapoet.ParameterSpec
 import com.squareup.javapoet.TypeSpec
+import dagger.BindsInstance
 import dagger.Component
 import motif.ScopeImpl
-import motif.compiler.ir.CompilerType
+import motif.ast.compiler.CompilerType
 import motif.internal.DaggerScope
 import motif.models.graph.Graph
 import motif.models.graph.Scope
@@ -77,6 +78,25 @@ class ScopeImplFactory(
     }
 
     private fun component(scope: Scope): TypeSpec {
+        val builder = TypeSpec.interfaceBuilder(scope.componentBuilderTypeName)
+                .addAnnotation(Component.Builder::class.java)
+                .addModifiers(Modifier.PUBLIC, Modifier.STATIC)
+                .addMethod(MethodSpec.methodBuilder("dependencies")
+                        .addModifiers(Modifier.PUBLIC, Modifier.ABSTRACT)
+                        .returns(scope.componentBuilderTypeName)
+                        .addParameter(scope.dependenciesTypeName, "dependencies")
+                        .build())
+                .addMethod(MethodSpec.methodBuilder("scope")
+                        .addAnnotation(BindsInstance::class.java)
+                        .addModifiers(Modifier.PUBLIC, Modifier.ABSTRACT)
+                        .returns(scope.componentBuilderTypeName)
+                        .addParameter(scope.typeName, "scope")
+                        .build())
+                .addMethod(MethodSpec.methodBuilder("build")
+                        .addModifiers(Modifier.PUBLIC, Modifier.ABSTRACT)
+                        .returns(scope.componentTypeName)
+                        .build())
+                .build()
         return TypeSpec.interfaceBuilder(scope.componentTypeName)
                 .addAnnotation(DaggerScope::class.java)
                 .addAnnotation(AnnotationSpec.builder(Component::class.java)
@@ -84,6 +104,7 @@ class ScopeImplFactory(
                         .addMember("modules", "\$T.class", scope.moduleTypeName)
                         .build())
                 .addMethods(scope.componentMethodSpecs.map { it.value })
+                .addType(builder)
                 .build()
     }
 
@@ -120,15 +141,12 @@ class ScopeImplFactory(
                 .addModifiers(Modifier.PUBLIC)
                 .addParameter(dependenciesParam)
                 .addStatement("this.\$N = \$T.builder()\n" +
-                        ".\$N(\$N)\n" +
-                        ".\$N(new \$T())\n" +
+                        ".dependencies(\$N)\n" +
+                        ".scope(this)\n" +
                         ".build()",
                         componentFieldSpec,
                         daggerComponentName,
-                        dependenciesTypeName.simpleName().decapitalize(),
-                        dependenciesParam,
-                        moduleTypeName.simpleName().decapitalize(),
-                        moduleTypeName)
+                        dependenciesParam)
                 .build()
     }
 
