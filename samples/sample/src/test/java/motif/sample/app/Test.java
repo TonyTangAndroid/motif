@@ -22,7 +22,7 @@ public class Test {
 
     @org.junit.Test
     public void run() {
-        ParentScope parentScope = new ParentScopeBuilderImpl().create("foo");
+        ParentScope parentScope = new ParentScopeBuilder().create(() -> "foo");
         assertThat(parentScope.childScope().parentName()).isEqualTo("foo");
     }
 }
