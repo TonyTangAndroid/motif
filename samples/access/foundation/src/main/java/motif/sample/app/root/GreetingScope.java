@@ -29,5 +29,6 @@ public interface GreetingScope {
       return "Hello %s";
     }
 
+    abstract GreetingManager greetingManager();
   }
 }
