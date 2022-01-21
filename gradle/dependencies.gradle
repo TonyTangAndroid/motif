@@ -36,7 +36,7 @@ ext.deps = [
                 targetSdkVersion: 30,
 
                 gradlePlugins: [
-                        android: 'com.android.tools.build:gradle:4.2.0',
+                        android: 'com.android.tools.build:gradle:4.2.2',
                         kotlin: "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}",
                         dokka: "org.jetbrains.dokka:dokka-gradle-plugin:${versions.dokka}",
                 ]
