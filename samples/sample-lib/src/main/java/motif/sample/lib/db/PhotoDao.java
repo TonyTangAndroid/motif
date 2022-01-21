@@ -15,7 +15,7 @@
  */
 package motif.sample.lib.db;
 
-import android.arch.persistence.room.*;
+import androidx.room.*;
 import io.reactivex.Single;
 
 import java.util.List;
