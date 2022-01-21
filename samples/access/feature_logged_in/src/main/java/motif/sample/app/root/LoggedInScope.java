@@ -18,11 +18,10 @@ package motif.sample.app.root;
 import motif.Scope;
 
 @Scope
-public interface LoggedInScope {
+public interface LoggedInScope extends GreetingScope
+    .Builder {
 
   LoggedManager greetingManager();
-
-  GreetingScope greetingScope();
 
   @motif.Objects
   abstract class Objects {
