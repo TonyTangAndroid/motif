@@ -18,12 +18,14 @@ package motif.sample.app.root;
 public class GreetingManager {
 
   private final String template;
+  private final PersonEntity personEntity;
 
-  public GreetingManager(String template) {
+  public GreetingManager(String template, PersonEntity personEntity) {
     this.template = template;
+    this.personEntity = personEntity;
   }
 
-  public String greeting(PersonEntity personEntity) {
-    return String.format(template, personEntity.getName());
+  public String greeting() {
+    return String.format(template, this.personEntity.getName());
   }
 }

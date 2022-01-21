@@ -17,6 +17,7 @@ package motif.sample.app.application;
 
 import com.google.common.truth.Truth;
 import motif.sample.app.root.GreetingScopeImpl;
+import motif.sample.app.root.GreetingScopeImpl.Dependencies;
 import motif.sample.app.root.PersonEntity;
 import org.junit.Test;
 
@@ -24,9 +25,7 @@ public class FoundationTest {
 
   @Test
   public void testIt() {
-    Truth.assertThat(new GreetingScopeImpl().greetingManager().greeting(
-        new PersonEntity("tony")
-    )).isEqualTo("Hello tony");
+    Truth.assertThat(new GreetingScopeImpl(() -> new PersonEntity("tony")).greetingManager().greeting()).isEqualTo("Hello tony");
 
   }
 }

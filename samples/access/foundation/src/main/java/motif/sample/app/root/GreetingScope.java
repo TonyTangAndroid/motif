@@ -22,6 +22,10 @@ public interface GreetingScope {
 
   GreetingManager greetingManager();
 
+  interface Builder {
+    GreetingScope greetingScope(PersonEntity personEntity);
+  }
+
   @motif.Objects
   abstract class Objects {
 
