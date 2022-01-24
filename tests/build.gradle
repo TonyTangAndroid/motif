@@ -11,8 +11,8 @@ sourceCompatibility = 1.8
 dependencies {
     kapt project(':tests:compiler')
     kapt deps.daggerCompiler
-    implementation project(':core')
-    implementation project(':lib')
-    implementation deps.kotlin.stdlib
-    implementation deps.test.truth
+    api project(':core')
+    api project(':lib')
+    api deps.kotlin.stdlib
+    api deps.test.truth
 }

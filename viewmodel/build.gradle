@@ -10,7 +10,7 @@ dependencies {
     api project(':models')
     api project(':errormessage')
 
-    implementation deps.kotlin.stdlib
+    api deps.kotlin.stdlib
 }
 
 apply from: rootProject.file('gradle/gradle-mvn-push.gradle')

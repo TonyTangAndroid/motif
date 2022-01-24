@@ -11,5 +11,5 @@ intellij {
 }
 
 dependencies {
-    implementation deps.test.truth
+    api deps.test.truth
 }

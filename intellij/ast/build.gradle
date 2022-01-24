@@ -12,11 +12,11 @@ intellij {
 }
 
 dependencies {
-    implementation project(':lib')
-    implementation project(':ast')
+    api project(':lib')
+    api project(':ast')
     api project(':errormessage')
 
-    implementation deps.kotlin.reflection
+    api deps.kotlin.reflection
 
     testImplementation deps.test.junit
     testImplementation deps.test.assertj
