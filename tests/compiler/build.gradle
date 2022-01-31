@@ -5,9 +5,9 @@ plugins {
 sourceCompatibility = 1.8
 
 dependencies {
-    implementation deps.autoCommon
-    implementation deps.kotlin.stdlib
-    implementation deps.javapoet
-    implementation project(':compiler-ast')
-    implementation project(':lib')
+    api deps.autoCommon
+    api deps.kotlin.stdlib
+    api deps.javapoet
+    api project(':compiler-ast')
+    api project(':lib')
 }

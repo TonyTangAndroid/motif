@@ -9,8 +9,8 @@ sourceCompatibility = 1.8
 
 
 dependencies {
-    implementation deps.kotlin.stdlib
-    implementation deps.autoCommon
+    api deps.kotlin.stdlib
+    api deps.autoCommon
 
     api project(':ast')
 

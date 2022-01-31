@@ -11,8 +11,8 @@ sourceCompatibility = 1.8
 dependencies {
     api project(':ast')
 
-    implementation deps.kotlin.stdlib
-    implementation project(':lib')
+    api deps.kotlin.stdlib
+    api project(':lib')
 
     testImplementation project(':compiler-ast')
     testImplementation deps.test.truth

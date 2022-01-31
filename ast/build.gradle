@@ -9,8 +9,8 @@ sourceCompatibility = 1.8
 
 
 dependencies {
-    implementation deps.kotlin.stdlib
-    implementation deps.dagger
+    api deps.kotlin.stdlib
+    api deps.dagger
 
     testImplementation deps.test.junit
     testImplementation deps.test.truth

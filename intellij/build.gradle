@@ -15,11 +15,11 @@ group 'com.uber.motif'
 version '0.0.5' // Plugin version
 
 dependencies {
-    implementation project(':lib')
-    implementation project(':core')
-    implementation project(':intellij-ast')
+    api project(':lib')
+    api project(':core')
+    api project(':intellij-ast')
 
-    implementation deps.kotlin.reflection
+    api deps.kotlin.reflection
 
     testImplementation deps.test.truth
     testImplementation project(':intellij:testing')
