@@ -36,9 +36,9 @@ include 'samples:sample'
 include 'samples:sample-lib'
 include 'samples:sample-kotlin'
 include 'samples:dagger-comparison'
-include 'intellij'
-include 'intellij-ast'
-include 'intellij:testing'
+//include 'intellij'
+//include 'intellij-ast'
+//include 'intellij:testing'
 include 'core'
 include 'errormessage'
 include 'models'
@@ -48,4 +48,4 @@ include 'tests:compiler'
 include 'viewmodel'
 
 project(':compiler-ast').projectDir = file('compiler/ast')
-project(':intellij-ast').projectDir = file('intellij/ast')
+//project(':intellij-ast').projectDir = file('intellij/ast')
