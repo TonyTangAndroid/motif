@@ -9,7 +9,7 @@ apply plugin: 'kotlin-kapt'
 sourceCompatibility = 1.8
 
 dependencies {
-    kapt project(':tests:compiler')
+    kapt project(':tests_compiler')
     kapt deps.daggerCompiler
     api project(':core')
     api project(':lib')
