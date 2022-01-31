@@ -14,7 +14,7 @@ dependencies {
     api deps.kotlin.stdlib
     api project(':lib')
 
-    testImplementation project(':compiler-ast')
+    testImplementation project(':compiler_ast')
     testImplementation deps.test.truth
     testImplementation deps.test.compileTesting
 }

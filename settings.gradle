@@ -31,7 +31,7 @@ pluginManagement {
 rootProject.name = 'motif'
 include 'lib'
 include 'compiler'
-include 'compiler-ast'
+include 'compiler_ast'
 include 'samples:sample'
 include 'samples:sample-lib'
 include 'samples:sample-kotlin'
@@ -46,6 +46,3 @@ include 'ast'
 include 'tests'
 include 'tests:compiler'
 include 'viewmodel'
-
-project(':compiler-ast').projectDir = file('compiler/ast')
-//project(':intellij-ast').projectDir = file('intellij/ast')

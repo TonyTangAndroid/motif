@@ -15,7 +15,7 @@ dependencies {
     api deps.dagger
     api deps.daggerCompiler
     api project(':lib')
-    api project(':compiler-ast')
+    api project(':compiler_ast')
     api project(':core')
     api project(':errormessage')
 
