@@ -2,6 +2,11 @@ plugins {
     id 'org.jetbrains.kotlin.jvm'
     id 'org.jetbrains.dokka'
 }
+apply plugin: 'java-library'
+
+apply plugin: 'maven'
+group = POM_GROUP_ID
+version =  POM_VERSION
 
 sourceCompatibility = 1.8
 
@@ -10,7 +15,7 @@ dependencies {
     api project(':models')
     api project(':errormessage')
 
-    implementation deps.kotlin.stdlib
+    api deps.kotlin.stdlib
 }
 
 apply from: rootProject.file('gradle/gradle-mvn-push.gradle')

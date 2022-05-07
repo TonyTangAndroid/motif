@@ -7,11 +7,14 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        mavenLocal()
     }
     dependencies {
         classpath deps.build.gradlePlugins.android
         classpath deps.build.gradlePlugins.kotlin
         classpath deps.build.gradlePlugins.dokka
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
         classpath deps.apacheClient
     }
 }
@@ -22,5 +25,6 @@ subprojects {
     repositories {
         google()
         mavenCentral()
+        mavenLocal()
     }
 }

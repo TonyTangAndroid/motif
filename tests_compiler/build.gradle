@@ -1,0 +1,13 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+sourceCompatibility = 1.8
+
+dependencies {
+    api deps.autoCommon
+    api deps.kotlin.stdlib
+    api deps.javapoet
+    api project(':compiler_ast')
+    api project(':lib')
+}

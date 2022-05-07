@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+./gradlew :ast:install
+./gradlew :compiler:install
+./gradlew :compiler_ast:install
+./gradlew :core:install
+./gradlew :errormessage:install
+./gradlew :lib:install
+./gradlew :models:install
+./gradlew :viewmodel:install

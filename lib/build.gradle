@@ -1,4 +1,7 @@
 apply plugin: 'java-library'
+apply plugin: 'maven'
+group = POM_GROUP_ID
+version =  POM_VERSION
 
 sourceCompatibility = 1.7
 targetCompatibility = 1.7

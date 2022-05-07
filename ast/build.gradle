@@ -2,15 +2,18 @@ plugins {
     id 'org.jetbrains.kotlin.jvm'
     id 'org.jetbrains.dokka'
 }
-
+apply plugin: 'java-library'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'maven'
+group = POM_GROUP_ID
+version =  POM_VERSION
 
 sourceCompatibility = 1.8
 
 
 dependencies {
-    implementation deps.kotlin.stdlib
-    implementation deps.dagger
+    api deps.kotlin.stdlib
+    api deps.dagger
 
     testImplementation deps.test.junit
     testImplementation deps.test.truth

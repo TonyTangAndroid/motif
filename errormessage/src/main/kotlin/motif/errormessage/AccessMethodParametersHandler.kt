@@ -28,7 +28,7 @@ internal class AccessMethodParametersHandler(private val error: AccessMethodPara
               ${error.scope.qualifiedName}.${error.method.name}
             
             Suggestions:
-              * If this method was intended to be a child method, ensure that the return type is a Scope.
+              * If this method was intended to be a child method, ensure that the return type is a [motif.Scope].
         """.trimIndent())
     }
 }

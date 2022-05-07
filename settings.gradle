@@ -25,27 +25,25 @@ pluginManagement {
         google()
         mavenCentral()
         gradlePluginPortal()
+        mavenLocal()
     }
 }
 
 rootProject.name = 'motif'
 include 'lib'
 include 'compiler'
-include 'compiler-ast'
+include 'compiler_ast'
 include 'samples:sample'
 include 'samples:sample-lib'
-include 'samples:sample-kotlin'
-include 'samples:dagger-comparison'
-include 'intellij'
-include 'intellij-ast'
-include 'intellij:testing'
+//include 'samples:sample-kotlin'
+//include 'samples:dagger-comparison'
+//include 'intellij'
+//include 'intellij-ast'
+//include 'intellij:testing'
+//include 'tests'
+//include 'tests_compiler'
 include 'core'
 include 'errormessage'
 include 'models'
 include 'ast'
-include 'tests'
-include 'tests:compiler'
 include 'viewmodel'
-
-project(':compiler-ast').projectDir = file('compiler/ast')
-project(':intellij-ast').projectDir = file('intellij/ast')

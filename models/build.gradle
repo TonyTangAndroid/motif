@@ -2,8 +2,13 @@ plugins {
     id 'org.jetbrains.kotlin.jvm'
     id 'org.jetbrains.dokka'
 }
+apply plugin: 'java-library'
 
 apply plugin: 'kotlin-kapt'
+
+apply plugin: 'maven'
+group = POM_GROUP_ID
+version =  POM_VERSION
 
 sourceCompatibility = 1.8
 
@@ -11,10 +16,10 @@ sourceCompatibility = 1.8
 dependencies {
     api project(':ast')
 
-    implementation deps.kotlin.stdlib
-    implementation project(':lib')
+    api deps.kotlin.stdlib
+    api project(':lib')
 
-    testImplementation project(':compiler-ast')
+    testImplementation project(':compiler_ast')
     testImplementation deps.test.truth
     testImplementation deps.test.compileTesting
 }

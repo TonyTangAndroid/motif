@@ -2,22 +2,26 @@ plugins {
     id 'org.jetbrains.kotlin.jvm'
     id 'org.jetbrains.dokka'
 }
+apply plugin: 'java-library'
+apply plugin: 'maven'
+group = POM_GROUP_ID
+version =  POM_VERSION
 
 sourceCompatibility = 1.8
 
 dependencies {
-    implementation deps.kotlin.stdlib
-    implementation deps.kotlin.reflection
-    implementation deps.autoCommon
-    implementation deps.commonsCodec
-    implementation deps.javapoet
-    implementation deps.kotlinpoet
-    implementation deps.dagger
-    implementation deps.daggerCompiler
-    implementation project(':lib')
-    implementation project(':compiler-ast')
-    implementation project(':core')
-    implementation project(':errormessage')
+    api deps.kotlin.stdlib
+    api deps.kotlin.reflection
+    api deps.autoCommon
+    api deps.commonsCodec
+    api deps.javapoet
+    api deps.kotlinpoet
+    api deps.dagger
+    api deps.daggerCompiler
+    api project(':lib')
+    api project(':compiler_ast')
+    api project(':core')
+    api project(':errormessage')
 
     testImplementation project(':viewmodel')
     testImplementation deps.proguard
