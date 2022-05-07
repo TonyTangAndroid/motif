@@ -32,7 +32,7 @@ internal class InjectAnnotationRequiredHandler(private val error: InjectAnnotati
                   ${error.objects.clazz.qualifiedName}.${error.method.name}
 
             Suggestions:
-              * Annotation the desired constructor with @Inject.
+              * Annotate the desired constructor with @Inject.
               * Update the type to have only one constructor.
         """.trimIndent())
     }
