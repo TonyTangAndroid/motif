@@ -1,8 +1,9 @@
 package com.hello.app;
 
-import org.junit.Test;
+import static com.google.common.truth.Truth.assertThat;
 
-import static org.junit.Assert.*;
+import motif.ScopeFactory;
+import org.junit.Test;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -13,6 +14,12 @@ public class ExampleUnitTest {
 
   @Test
   public void addition_isCorrect() {
-    assertEquals(4, 2 + 2);
+    RootScope rootScope = ScopeFactory.create(RootScope.class, new RootDependencies() {
+      @Override
+      public String string() {
+        return "test";
+      }
+    });
+    assertThat(rootScope).isNotNull();
   }
 }
