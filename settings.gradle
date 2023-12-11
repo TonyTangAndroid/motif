@@ -29,29 +29,29 @@ pluginManagement {
 }
 
 rootProject.name = 'motif'
-include 'lib'
-include 'compiler'
-include 'compiler-ast'
-include 'compiler-ksp'
-include 'samples:sample'
-include 'samples:sample-lib'
-include 'samples:sample-kotlin'
-include 'samples:sample-kotlin-ksp'
-include 'samples:dagger-comparison'
-include 'intellij'
-include 'intellij-ast'
-include 'core'
-include 'errormessage'
-include 'models'
-include 'ast'
-include 'tests'
-include 'tests:compiler'
-include 'viewmodel'
-include 'xprocessing'
-include 'xprocessing-testing'
+//include 'lib'
+//include 'compiler'
+//include 'compiler-ast'
+//include 'compiler-ksp'
+//include 'samples:sample'
+//include 'samples:sample-lib'
+//include 'samples:sample-kotlin'
+//include 'samples:sample-kotlin-ksp'
+//include 'samples:dagger-comparison'
+//include 'intellij'
+//include 'intellij-ast'
+//include 'core'
+//include 'errormessage'
+//include 'models'
+//include 'ast'
+//include 'tests'
+//include 'tests:compiler'
+//include 'viewmodel'
+//include 'xprocessing'
+//include 'xprocessing-testing'
 
-project(':compiler-ast').projectDir = file('compiler/ast')
-project(':compiler-ksp').projectDir = file('compiler/ksp')
-project(':intellij-ast').projectDir = file('intellij/ast')
-include ':samples:sample-lib-ksp'
+//project(':compiler-ast').projectDir = file('compiler/ast')
+//project(':compiler-ksp').projectDir = file('compiler/ksp')
+//project(':intellij-ast').projectDir = file('intellij/ast')
+//include ':samples:sample-lib-ksp'
 include ':app'
