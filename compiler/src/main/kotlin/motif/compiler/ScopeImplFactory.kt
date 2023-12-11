@@ -109,8 +109,7 @@ private constructor(private val env: XProcessingEnv, private val graph: Resolved
     }
 
     private fun alternateConstructor(): AlternateConstructor? {
-      if (getDependencyMethodData(scope).isNotEmpty() ||
-          !scope.dependencies?.methods.isNullOrEmpty()) {
+      if (getDependencyMethodData(scope).isNotEmpty()) {
         return null
       }
       return AlternateConstructor(scope.dependenciesClassName)
