@@ -55,7 +55,7 @@ include 'samples:dagger-comparison'
 include ':app'
 
 
-//include 'intellij'
-//include 'intellij-ast'
-//project(':intellij-ast').projectDir = file('intellij/ast')
-//include 'samples:sample'
+include 'intellij'
+include 'intellij-ast'
+project(':intellij-ast').projectDir = file('intellij/ast')
+include 'samples:sample'
