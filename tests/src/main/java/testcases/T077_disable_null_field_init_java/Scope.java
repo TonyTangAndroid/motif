@@ -13,19 +13,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package motif.ast
+package testcases.T077_disable_null_field_init_java;
 
-import kotlin.reflect.KClass
+import javax.inject.Named;
 
-interface IrAnnotation : IrEquivalence {
+import motif.Creatable;
 
-  val className: String?
+@motif.Scope(useNullFieldInitialization = true)
+public interface Scope extends Creatable<Scope.Dependencies> {
 
-  val type: IrType?
+    Object fooObject();
 
-  val members: List<IrMethod>
+    int fooInt();
 
-  val annotationValueMap: Map<String, Any?>
+    String fooString();
 
-  fun matchesClass(annotationClass: KClass<out Annotation>): Boolean
+    @motif.Objects
+    class Objects {
+
+        Object fooObject() {
+            return new Object();
+        }
+
+        int fooInt() {
+            return 3;
+        }
+
+        String fooString() {
+            return "fooString";
+        }
+    }
+
+    interface Dependencies {}
 }

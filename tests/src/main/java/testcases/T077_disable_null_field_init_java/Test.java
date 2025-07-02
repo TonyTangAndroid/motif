@@ -13,19 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package motif.ast
+package testcases.T077_disable_null_field_init_java;
 
-import kotlin.reflect.KClass
+import static com.google.common.truth.Truth.assertThat;
 
-interface IrAnnotation : IrEquivalence {
+import motif.ScopeFactory;
+import testcases.T077_disable_null_field_init_java.Scope;
 
-  val className: String?
+public class Test {
 
-  val type: IrType?
-
-  val members: List<IrMethod>
-
-  val annotationValueMap: Map<String, Any?>
-
-  fun matchesClass(annotationClass: KClass<out Annotation>): Boolean
+    public static void run() {
+        Scope scope = new ScopeImpl();
+        assertThat(scope.fooString()).isEqualTo("fooString");
+        assertThat(scope.fooInt()).isEqualTo(3);
+        assertThat(scope.fooObject()).isNotNull();
+        assertThat(scope.fooObject()).isEqualTo(scope.fooObject());
+    }
 }

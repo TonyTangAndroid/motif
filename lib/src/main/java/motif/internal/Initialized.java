@@ -13,19 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package motif.ast
+package motif.internal;
 
-import kotlin.reflect.KClass
+public final class Initialized {
+    public static final Object INITIALIZED = new Initialized();
 
-interface IrAnnotation : IrEquivalence {
-
-  val className: String?
-
-  val type: IrType?
-
-  val members: List<IrMethod>
-
-  val annotationValueMap: Map<String, Any?>
-
-  fun matchesClass(annotationClass: KClass<out Annotation>): Boolean
+    private Initialized() {
+        // Private constructor to prevent instantiation
+    }
 }
