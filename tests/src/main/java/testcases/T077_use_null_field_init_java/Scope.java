@@ -13,24 +13,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package motif.sample
+package testcases.T077_use_null_field_init_java;
 
-import javax.inject.Named
-import motif.Creatable
-import motif.Scope
+import motif.Creatable;
 
-@Scope(useNullFieldInitialization = true)
-interface MainScope : Creatable<MainScope.Dependencies> {
+@motif.Scope(useNullFieldInitialization = true)
+public interface Scope extends Creatable<Scope.Dependencies> {
 
-  fun greeter(): Greeter
+    Object fooObject();
 
-  @motif.Objects
-  open class Objects {
+    int fooInt();
 
-    @Named("name") fun name() = "World"
+    String fooString();
 
-    fun greeter(@Named("name") name: String) = Greeter(name)
-  }
+    @motif.Objects
+    class Objects {
 
-  interface Dependencies
+        Object fooObject() {
+            return new Object();
+        }
+
+        int fooInt() {
+            return 3;
+        }
+
+        String fooString() {
+            return "fooString";
+        }
+    }
+
+    interface Dependencies {}
 }

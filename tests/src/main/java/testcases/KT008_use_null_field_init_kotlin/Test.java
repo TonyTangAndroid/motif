@@ -13,24 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package motif.sample
+package testcases.KT008_use_null_field_init_kotlin;
 
-import javax.inject.Named
-import motif.Creatable
-import motif.Scope
+import static com.google.common.truth.Truth.assertThat;
 
-@Scope(useNullFieldInitialization = true)
-interface MainScope : Creatable<MainScope.Dependencies> {
+public class Test {
 
-  fun greeter(): Greeter
-
-  @motif.Objects
-  open class Objects {
-
-    @Named("name") fun name() = "World"
-
-    fun greeter(@Named("name") name: String) = Greeter(name)
-  }
-
-  interface Dependencies
+    public static void run() {
+        Scope scope = new ScopeImpl();
+        assertThat(scope.fooString()).isEqualTo("fooString");
+        assertThat(scope.fooInt()).isEqualTo(3);
+        assertThat(scope.fooObject()).isNotNull();
+        assertThat(scope.fooObject()).isEqualTo(scope.fooObject());
+    }
 }

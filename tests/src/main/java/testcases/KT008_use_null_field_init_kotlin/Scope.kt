@@ -13,24 +13,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package motif.sample
+package testcases.KT008_use_null_field_init_kotlin
 
-import javax.inject.Named
 import motif.Creatable
-import motif.Scope
 
-@Scope(useNullFieldInitialization = true)
-interface MainScope : Creatable<MainScope.Dependencies> {
+@motif.Scope(useNullFieldInitialization = true)
+interface Scope : Creatable<Scope.Dependencies> {
+    fun fooObject(): Any
 
-  fun greeter(): Greeter
+    fun fooInt(): Int
 
-  @motif.Objects
-  open class Objects {
+    fun fooString(): String
 
-    @Named("name") fun name() = "World"
+    @motif.Objects
+    abstract class Objects {
+        fun fooObject(): Any {
+            return Any()
+        }
 
-    fun greeter(@Named("name") name: String) = Greeter(name)
-  }
+        fun fooInt(): Int {
+            return 3
+        }
 
-  interface Dependencies
+        fun fooString(): String {
+            return "fooString"
+        }
+    }
+
+    interface Dependencies
 }
