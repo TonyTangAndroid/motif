@@ -13,20 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package motif.sample.app.root;
+package demo;
 
-import com.google.common.truth.Truth;
-import demo.RootScope2Impl;
-import demo.RootScope2Impl.Dependencies;
-import org.junit.Test;
 
-public class RootScopeTest {
+import javax.inject.Inject;
 
-  @Test
-  public void testIt() {
-    Dependencies dependencies = () -> 123;
-    RootScope2Impl rootScope2 = new RootScope2Impl(dependencies);
-    String foo = rootScope2.foo();
-    Truth.assertThat(foo).isEqualTo("123");
+public class Bar {
+
+  @Inject
+  public Bar() {
   }
 }
