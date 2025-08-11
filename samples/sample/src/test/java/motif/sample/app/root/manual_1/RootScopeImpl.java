@@ -66,7 +66,7 @@ public class RootScopeImpl implements RootScope {
   private static class Objects extends RootScope.Objects {
 
     @Override
-    Bar bar() {
+    public Bar bar() {
       throw new UnsupportedOperationException();
     }
   }
