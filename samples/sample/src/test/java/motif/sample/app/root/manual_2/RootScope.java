@@ -25,9 +25,9 @@ public interface RootScope {
   @motif.Objects
   abstract class Objects {
 
-    abstract Bar bar();
+    public abstract Bar bar();
 
-    String foo(int param) {
+    public String foo(int param) {
       return String.valueOf(param);
     }
   }

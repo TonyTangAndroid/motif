@@ -1,7 +1,6 @@
 package motif.sample.app.root.manual_2;
 
 import demo.Bar;
-import motif.internal.Initialized;
 
 public class RootScopeImpl implements RootScope {
 
@@ -22,7 +21,7 @@ public class RootScopeImpl implements RootScope {
     return string();
   }
 
-  RootScope rootScope2() {
+  RootScope rootScope() {
     return this;
   }
 
@@ -32,12 +31,12 @@ public class RootScopeImpl implements RootScope {
       synchronized (this) {
         if (bar == null) {
           _bar = new Bar();
+          if (_bar == null) {
+            throw new NullPointerException("Factory method cannot return null");
+          }
           bar = _bar;
         }
       }
-    }
-    if (_bar == Initialized.INITIALIZED) {
-      return null;
     }
     return (Bar) _bar;
   }
@@ -49,14 +48,11 @@ public class RootScopeImpl implements RootScope {
         if (string == null) {
           _string = objects.foo(integer());
           if (_string == null) {
-            _string = Initialized.INITIALIZED;
+            throw new NullPointerException("Factory method cannot return null");
           }
           string = _string;
         }
       }
-    }
-    if (_string == Initialized.INITIALIZED) {
-      return null;
     }
     return (String) _string;
   }
@@ -70,7 +66,7 @@ public class RootScopeImpl implements RootScope {
     /**
      * <ul>
      * Requested from:
-     * <li>{@link demo.RootScope2.Objects#foo(int)}</li>
+     * <li>{@link demo.RootScope.Objects#foo(int)}</li>
      * </ul>
      */
     int integer();
@@ -79,7 +75,7 @@ public class RootScopeImpl implements RootScope {
   private static class Objects extends RootScope.Objects {
 
     @Override
-    Bar bar() {
+    public Bar bar() {
       throw new UnsupportedOperationException();
     }
   }
